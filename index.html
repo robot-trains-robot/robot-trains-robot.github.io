@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Robot Trains Robot: Automatic Real-World Policy Adaptation and Learning for Humanoids">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robot Trains Robot: Automatic Real-World Policy Adaptation and Learning for Humanoids</title>
+
+  <meta property="og:image" content="media/figures/thumbnail.png">
+
+  <link rel="icon" href="media/figures/thumbnail.png" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="stylesheet" href="./static/source_serif_4.css">
+  <link rel="stylesheet" href="./static/source_sans_3.css">
+  <link rel="stylesheet" href="./static/academicons.min.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/light.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    .content p {
+      font-size: 1.1rem;
+    }
+
+    .hero .title {
+      font-size: 2.5rem;
+    }
+
+    .title.is-3 {
+      font-size: 1.75rem;
+    }
+
+    .title.is-4 {
+      font-size: 1.5rem;
+    }
+
+    .team-member {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .team-member img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #eee;
+    }
+
+    .team-member .name {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-fullhd">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- <h1 class="title is-1 publication-title">
+              Robot Trains Robot: Automatic Real-World Policy Adaptation and Learning for Humanoids
+            </h1> -->
+            <h1 class="title is-1 publication-title">
+              <img src="media/figures/rtr_logo.png" alt="Robot Trains Robot"
+                style="height: 2em; vertical-align: bottom; margin-right: 0px;">: Automatic Real-World Policy
+              Adaptation and Learning for Humanoids
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a target="_blank" href="https://hukz18.github.io/">Kaizhe Hu</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="https://hshi74.github.io/">Haochen Shi</a><sup>*</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="https://shockwavehe.github.io/">Yao He</a><sup></sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="http://me.weizhuowang.com/">Weizhuo Wang</a><sup></sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="https://tml.stanford.edu/people/karen-liu">C. Karen Liu</a><sup>†</sup>,
+              </span>
+              <span class="author-block">
+                <a target="_blank" href="https://shurans.github.io/">Shuran Song</a><sup>†</sup>
+              </span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <i>CoRL 2025</i>
+            </div>
+            <div class="is-size-5 affiliation">
+              Stanford University
+            </div>
+            <br>
+            <div class="affiliation-note">
+              <sup>*</sup> Equal contribution
+              <sup>†</sup> Equal advising
+            </div>
+
+            <div class="button-container">
+              <span class="link-block">
+                <a href="./rtr.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/hukz18/Robot-Trains-Robot" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2411.04919" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>ArXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://youtu.be/MhwVx_mlm6Q" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://x.com/HaochenShi74/status/1886599720279400732" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>Tweet</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-widescreen">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered is-centered">
+            <img src="media/figures/teaser.png" class="teaser-image" style="width: 50%; height: auto" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-quarters">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Simulation-based reinforcement learning (RL) has significantly advanced humanoid
+              locomotion tasks, yet direct real-world RL from scratch or adapting from pretrained
+              policies remains rare, limiting the full potential of humanoid robots. Real-world
+              learning, despite being crucial for overcoming the sim-to-real gap, faces substantial
+              challenges related to safety, reward design, and learning efficiency. To address these
+              limitations, we propose Robot-Trains-Robot (RTR), a novel framework where a robotic arm
+              teacher actively supports and guides a humanoid robot student. The RTR system provides
+              protection, learning schedule, reward, perturbation, failure detection, and automatic
+              resets. It enables efficient long-term real-world humanoid training with minimal human
+              intervention. Furthermore, we propose a novel RL pipeline that facilitates and stabilizes
+              sim-to-real transfer by optimizing a single dynamics-encoded latent variable in the real
+              world. We validate our method through two challenging real-world humanoid tasks:
+              fine-tuning a walking policy for precise speed tracking and learning a humanoid swing-up
+              task from scratch, illustrating the promising capabilities of real-world humanoid
+              learning realized by RTR-style systems.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="rounded">
+      <div class="rows">
+        <h2 class="title is-3" style="text-align: center;">RTR System Setup</h2>
+        <div class="content has-text-justified">
+          <div class="formula" style="width: 75%; margin: auto;">
+            <p>The system consists of two groups: robot teachers and robot students. The teachers
+              include a robot arm with an F/T sensor, a mini PC, and an optional treadmill for
+              locomotion tasks; the students include a humanoid robot and a workstation for policy
+              training. The four types of lines represent physical interaction, data transmission,
+              control commands, and neural network parameters, respectively.
+            </p>
+          </div>
+          <br>
+          <img src="media/figures/system.png" class="method-image"
+            style="width: 75%; height: auto; display: block; margin: auto;" />
+          <br>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <h3 class="title is-4 has-text-centered">XY Direction Following and Z Direction Curriculum</h3>
+            <div class="publication-video">
+              <video id="xy-curriculum-video" controls muted width="100%">
+                <source src="media/videos/walk_arm.mp4" type="video/mp4">
+                video for XY Direction Following and Z Direction Curriculum.
+              </video>
+            </div>
+            <br>
+            <p class="content has-text-centered">The robot arm could move freely in the XY plane, following the robot's
+              movement compliantly via the F/T sensor, and gradually lower itself in the Z direction to set a learning
+              curriculum for the humanoid.
+            </p>
+          </div>
+          <div class="column">
+            <h3 class="title is-4 has-text-centered">Automatic Reset</h3>
+            <div class="publication-video">
+              <video id="auto-reset-video" controls muted width="100%">
+                <source src="media/videos/walk_reset.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <br>
+            <p class="content has-text-centered">The system could detect falls and dangerous movement, and automatically
+              reset the robot without human
+              intervention.</p>
+          </div>
+        </div>
+
+        <br>
+
+        <h2 class="title is-3" style="text-align: center;">Sim-to-real Fine-tuning Algorithm</h2>
+        <div class="content has-text-justified">
+          <div class="formula" style="width: 75%; margin: auto;">
+            <p>We illustrate our sim-to-real finetuning process.
+              First, we train a dynamics-aware policy in simulation via domain randomization (DR),
+              encoding environment physics into a latent vector. Next, we optimize a universal latent
+              across diverse simulation environments to initialize real-world training. Finally, we
+              refine the latent and train a new critic in the real world. Orange denotes trainable
+              components in three stages; blue indicates frozen ones.
+            </p>
+          </div>
+          <br>
+          <img src="media/figures/walk_algorithm.png" class="method-image"
+            style="width: 75%; height: auto; display: block; margin: auto;" />
+          <br>
+        </div>
+        <div class="content has-text-justified">
+          <div class="formula" style="width: 75%; margin: auto;">
+            <p>A video explanation for the algorithm is shown below.</p>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <div class="publication-video">
+              <video id="algorithm-video" controls muted width="100%">
+                <source src="media/videos/latent_finetune.mp4" type="video/mp4">
+                video explanation for the algorithm.
+              </video>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <hr class="rounded">
+      <div class="rows">
+        <h2 class="title is-3" style="text-align: center;">Real-World Experiments</h2>
+        <h2 class="title is-4" style="text-align: center;">Walking</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <img style="width: 75%; height: auto; display: block; margin: auto;" src="media/figures/walk_rewards.png" class="method-image" />
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <div class="formula" style="width: 75%; margin: auto;">
+            <p>This experiment aims to evaluate the effectiveness of arm feedback
+              control and latent vector finetuning. We present the linear velocity tracking rewards
+              during training
+              and evaluation, with the arm schedule shown at the bottom center. All variants are tested
+              under the
+              same condition: the arm uses an XY Compliant policy with Z fixed at a ∆ position of −0.02
+              m. We
+              conduct each experiment with three random seeds and show the mean and standard deviation
+              in the
+              plot. Unless otherwise specified, Finetune z, XY Compliant, and Z Schedule are assumed.
+            </p>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <div class="publication-video">
+              <video id="algorithm-video" controls muted width="100%">
+                <source src="media/videos/walk_uncut.mp4" type="video/mp4">
+                Uncut video for the walking experiment.
+              </video>
+            </div>
+          </div>
+        </div>
+        <hr class="rounded">
+        <h2 class="title is-4" style="text-align: center;">Swing-up</h2>
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <img style="width: 75%; height: auto; display: block; margin: auto;" src="media/figures/swing_ablation.png" class="method-image" />
+          </div>
+        </div>
+        <br>
+        <div class="content has-text-justified">
+          <div class="formula" style="width: 75%; margin: auto;">
+            <p>We illustrate the swing-up setup and experiment results. (a) The
+              humanoid is suspended from a robot arm and uses its legs to build momentum and maximize
+              rope
+              angle. (b) We compare helping and perturbing arm schedules against a fixed-arm baseline
+              and also
+              evaluate helping without a pretrained critic. Each experiment is run with three random
+              seeds, and
+              plots show the mean and standard deviation. (c) We show three arm schedules, where
+              helping and
+              perturbing occur during the middle phase, with the arm fixed at the beginning and end.
+            </p>
+          </div>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-three-quarters">
+            <div class="publication-video">
+              <video id="algorithm-video" controls muted width="100%">
+                <source src="media/videos/swing_uncut.mp4" type="video/mp4">
+                Uncut video for the swing-up experiment.
+              </video>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="container is-max-widescreen">
+      <h2 class="title is-3" style="text-align: center;">Team</h2>
+      <div class="columns is-centered is-multiline">
+        <div class="column is-one-fifth">
+          <div class="team-member">
+            <a href="https://hukz18.github.io/" target="_blank">
+              <img src="media/figures/kaizhe_hu.jpg" alt="Kaizhe Hu">
+            </a>
+            <p class="name"><a href="https://hukz18.github.io/" target="_blank">Kaizhe Hu<sup>*</sup></a></p>
+          </div>
+        </div>
+        <div class="column is-one-fifth">
+          <div class="team-member">
+            <a href="https://hshi74.github.io/" target="_blank">
+              <img src="media/figures/haochen_shi.jpeg" alt="Haochen Shi">
+            </a>
+            <p class="name"><a href="https://hshi74.github.io/" target="_blank">Haochen Shi<sup>*</sup></a></p>
+          </div>
+        </div>
+        <div class="column is-one-fifth">
+          <div class="team-member">
+            <a href="https://shockwavehe.github.io/" target="_blank">
+              <img src="media/figures/yao_he.jpg" alt="Yao He">
+            </a>
+            <p class="name"><a href="https://shockwavehe.github.io/" target="_blank">Yao He</a></p>
+          </div>
+        </div>
+        <div class="column is-one-fifth">
+          <div class="team-member">
+            <a href="http://me.weizhuowang.com/" target="_blank">
+              <img src="media/figures/weizhuo_wang.jpg" alt="Weizhuo Wang">
+            </a>
+            <p class="name"><a href="http://me.weizhuowang.com/" target="_blank">Weizhuo Wang</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="columns is-centered is-multiline">
+        <div class="column is-one-fifth">
+          <div class="team-member">
+            <a href="https://tml.stanford.edu/people/karen-liu" target="_blank">
+              <img src="media/figures/c_karen_liu.png" alt="C. Karen Liu">
+            </a>
+            <p class="name"><a href="https://tml.stanford.edu/people/karen-liu" target="_blank">C. Karen Liu<sup>†</sup></a></p>
+          </div>
+        </div>
+        <div class="column is-one-fifth">
+          <div class="team-member">
+            <a href="https://shurans.github.io/" target="_blank">
+              <img src="media/figures/shuran_song.jpg" alt="Shuran Song">
+            </a>
+            <p class="name"><a href="https://shurans.github.io/" target="_blank">Shuran Song<sup>†</sup></a></p>
+          </div>
+        </div>
+      </div>
+      <div class="content has-text-centered" style="margin-top: 0rem;">
+        <p class="is-size-5 affiliation">Stanford University</p>
+        <p class="is-size-6"><sup>*</sup>Equal contribution, <sup>†</sup>Equal advising</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{hu2025robot,
+    title={Robot Trains Robot: Automatic Real-World Policy Adaptation and Learning for Humanoids},
+    author={Hu, Kaizhe and Shi, Haochen and He, Yao and Wang, Weizhuo and Liu, C. Karen and Song, Shuran},
+    booktitle={Conference on Robot Learning (CoRL)},
+    year={2025}
+}</code></pre>
+    </div>
+  </section>
+
+  <section class="section" id="Acknowledgement">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgement</h2>
+      <p>
+        The authors would like to express their great gratitude to Yifan Hou for providing valuable help and feedback on the robot arm compliance controller. We thank Sirui Chen, Pei Xu, Lei Kun, Albert Wu, Ruocheng Wang, and Ziang Cao for their input on humanoid reinforcement learning. Finally, we appreciate the helpful discussions from all members of TML and REALab. 
+      </p>
+      <p>
+        This work was supported in part by the  NSF Award \#2143601, \#2037101, and \#2132519, Sloan Fellowship. We would like to thank Google for the UR5 robot hardware. The views and conclusions contained herein are those of the authors and should not be interpreted as necessarily representing the official policies, either expressed or implied, of the sponsors. 
+      </p>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content has-text-centered">
+            <p>
+              Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>.
+            </p>
+            <p>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                Creative Commons
+                Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/hukz18/stem-ob">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
